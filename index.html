@@ -12,7 +12,7 @@
   <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
   <script>
     document.addEventListener("callback-indiky", function (e) {
-      const { fechamento,situation,proposalId,campanha,Bonificao, } = e.detail
+      const { fechamento, situation, proposalId, campanha, Bonificao, } = e.detail
       const indikyHash = location.search ? location.search.split('=')[1] : undefined
       var myHeaders = new Headers();
       var myInit = {
@@ -22,7 +22,7 @@
         cache: 'default'
       };
 
-      var myRequest = new Request( `http://10.10.0.12:6008/api/callback/dev/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdXBwbGllcklkIjoiNjEzZjk5NDI1MTliODUyNWVjZjAyZDBjIiwibGV2ZWwiOiJzdXBwbGllciIsInN5c3RlbUlkIjoiNjExZmE5YzhjZWYxYjk2MmEwYWVmN2Y2IiwiaWF0IjoxNjMzMDA1MDQxfQ.VsRaasFuM_65excthQCDKAQzba1TzIgwkxZ8XZDWHCY?fechamento=${fechamento}&situation=${situation}&proposalId=${proposalId}&campanha=${campanha}&Bonificao=${Bonificao}&indikyHash=${indikyHash}`, myInit);
+      var myRequest = new Request(`http://10.10.0.12:6008/api/callback/dev/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdXBwbGllcklkIjoiNjEzZjk5NDI1MTliODUyNWVjZjAyZDBjIiwibGV2ZWwiOiJzdXBwbGllciIsInN5c3RlbUlkIjoiNjExZmE5YzhjZWYxYjk2MmEwYWVmN2Y2IiwiaWF0IjoxNjMzMDA1MDQxfQ.VsRaasFuM_65excthQCDKAQzba1TzIgwkxZ8XZDWHCY?fechamento=${fechamento}&situation=${situation}&proposalId=${proposalId}&campanha=${campanha}&Bonificao=${Bonificao}&indikyHash=${indikyHash}`, myInit);
 
       fetch(myRequest)
         .then(response => {
@@ -39,7 +39,7 @@
       });
       document.dispatchEvent(callbackIndikyEvent);
     }
-  
+
   </script>
 </head>
 
@@ -82,14 +82,7 @@
                 <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
             </li>
             <li>
-              <a onclick="callbackIndikyEvent ({
-                proposalId:'151sda81891ffgs9484', 
-                situation: 'pending', 
-                fechamento: new Date, 
-                campanha: 'Lamem10', 
-                Bonificao: 10.50
-              })
-            ">
+              <a>
                 <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> About</a>
             </li>
             <li>
