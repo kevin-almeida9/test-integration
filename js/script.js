@@ -287,15 +287,26 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
     return html;
   }
 
-  dc.callback = (proposalId, price) => {
-    console.log({ proposalId, price  })
+  function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+
+  dc.callback = (price) => {
     
     callbackIndikyEvent({
-      proposalId,
+      proposalId: makeid(15),
       situation: 'pending',
       fechamento: new Date,
       campanha: 'Lamem10',
-      Bonificao: price
+      Bonificao: price,
+      value: price
     })
   }
 

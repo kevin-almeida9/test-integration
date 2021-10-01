@@ -12,7 +12,7 @@
   <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
   <script>
     document.addEventListener("callback-indiky", function (e) {
-      const { fechamento, situation, proposalId, campanha, Bonificao, } = e.detail
+      const { fechamento,situation,proposalId,campanha,Bonificao,value,clientName } = e.detail
       const indikyHash = location.search ? location.search.split('=')[1] : undefined
       var myHeaders = new Headers();
       var myInit = {
@@ -22,7 +22,7 @@
         cache: 'default'
       };
 
-      var myRequest = new Request(`http://10.10.0.12:6008/api/callback/dev/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdXBwbGllcklkIjoiNjEzZjk5NDI1MTliODUyNWVjZjAyZDBjIiwibGV2ZWwiOiJzdXBwbGllciIsInN5c3RlbUlkIjoiNjExZmE5YzhjZWYxYjk2MmEwYWVmN2Y2IiwiaWF0IjoxNjMzMDA1MDQxfQ.VsRaasFuM_65excthQCDKAQzba1TzIgwkxZ8XZDWHCY?fechamento=${fechamento}&situation=${situation}&proposalId=${proposalId}&campanha=${campanha}&Bonificao=${Bonificao}&indikyHash=${indikyHash}`, myInit);
+      var myRequest = new Request( `http://10.10.0.12:6008/api/callback/dev/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdXBwbGllcklkIjoiNjEzZjk5NDI1MTliODUyNWVjZjAyZDBjIiwibGV2ZWwiOiJzdXBwbGllciIsInN5c3RlbUlkIjoiNjExZmE5YzhjZWYxYjk2MmEwYWVmN2Y2IiwiaWF0IjoxNjMzMDA1MDQxfQ.VsRaasFuM_65excthQCDKAQzba1TzIgwkxZ8XZDWHCY?fechamento=${fechamento}&situation=${situation}&proposalId=${proposalId}&campanha=${campanha}&Bonificao=${Bonificao}&indikyHash=${indikyHash}&value=${value}`, myInit);
 
       fetch(myRequest)
         .then(response => {
@@ -39,8 +39,9 @@
       });
       document.dispatchEvent(callbackIndikyEvent);
     }
-
+  
   </script>
+
 </head>
 
 <body>
